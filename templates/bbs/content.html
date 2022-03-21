@@ -1,0 +1,18 @@
+{% for topic in topics %}
+<div class="border">
+<div>{{ topic.comment }}</div>
+<div>
+    {% for topic_image in topic.images %}
+    <div>
+        <img src="{{ topic_image.image.url }}" alt="画像" style="max-width:100%;">
+    </div>
+    {% endfor %}
+</div>
+
+<form action="{% url 'bbs:single' topic.id %}">
+    <input class="btn btn-outline-danger trash" type="button" value="削除">
+</form>
+
+</div>
+{% endfor %}
+

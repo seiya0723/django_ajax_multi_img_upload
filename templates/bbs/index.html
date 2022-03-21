@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>簡易掲示板</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+
+
+    <script src="{% static 'js/ajax.js' %}"></script>
+
+</head>
+<body>
+
+    <main class="container">
+        <form id="form_area" action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <textarea id="textarea" class="form-control" name="comment"></textarea>
+
+            <!--TODO:後はこの部分をJSで増やしたり減らしたりする。-->
+            <div id="image_input_area">
+                <input class="image_input" type="file" name="image">
+            </div>
+
+
+
+            <input id="submit" type="button" value="送信">
+        </form>
+
+        <div id="content_area">{% include "bbs/content.html" %}</div>
+
+    </main>
+</body>
+</html>
+
