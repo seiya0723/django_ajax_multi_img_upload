@@ -4,7 +4,6 @@ window.addEventListener("load" , function (){
     $(document).on("click", ".trash", function(){ trash(this); });
 
     $(document).on("input", ".image_input", function(){ 
-        console.log("ああ");
         $("#image_input_area").append('<input class="image_input" type="file" name="image">');    
     })
 
